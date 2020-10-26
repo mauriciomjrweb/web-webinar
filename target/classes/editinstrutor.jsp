@@ -1,5 +1,7 @@
+<%@page import="webinar.dao.InstrutorDao"%>
+<%@page import="webinar.model.Instrutor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="instrutorcontroller" method="post">
-<input name="nome" type="text" >
-<input name="formacao" type="text" >
-<input name="email" type="text" >
-<input name="salario" type="text" >
-<input type="submit" >
-</form>
+	<%
+	int id = Integer.parseInt(request.getParameter("id"));
+	Instrutor instrutor = new InstrutorDao().get(id);
+	%>
+	<form action="instrutorcontroller" method="post">
+		<input type="hidden" name="id" value="<%=id%>" /> 
+		<input name="nome" type="text" value="<%=instrutor.getNome()%>"> 
+		<input name="formacao" type="text" value="<%=instrutor.getFormacao()%>">
+		<input name="email" type="text" value="<%=instrutor.getEmail()%>">
+		<input name="salario" type="text" value="<%=instrutor.getSalario()%>">
+		<input type="submit">
+	</form>
 </body>
 </html>

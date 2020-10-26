@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<a href="editinstrutor.jsp" >Novo</a>
+<a href="novoinstrutor.jsp" >Novo</a>
 
 	<%
 		List<Instrutor> instrutores = new InstrutorDao().getAll();
@@ -27,6 +27,7 @@
 			<td><%= inst.getEmail() %></td>
 			<td><%= inst.getFormacao() %></td>
 			<td><%= inst.getSalario() %></td>
+			<td><a href="instrutorcontroller?id=<%= inst.getId() %>" >Alterar</a></td>
 		</tr>
 		<%
 			}
