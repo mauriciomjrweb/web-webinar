@@ -4,4 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>InstrutorServlet</servlet-name>
+  	<display-name>InstrutorServlet</display-name>
+  	<description></description>
+  	<servlet-class>webinar.servlets.InstrutorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InstrutorServlet</servlet-name>
+  	<url-pattern>/InstrutorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InstrutorServlet</servlet-name>
+  	<url-pattern>/instrutorcontroller</url-pattern>
+  </servlet-mapping>
 </web-app>
