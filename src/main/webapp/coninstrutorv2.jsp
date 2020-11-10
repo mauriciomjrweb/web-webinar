@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@page import="webinar.dao.InstrutorDao"%>
 <%@page import="webinar.model.Instrutor"%>
 <%@page import="java.util.List"%>
@@ -23,7 +24,10 @@
 					<td>${inst.id }</td>
 					<td>${inst.nome}</td>
 					<td>${inst.email}</td>
-					<td>${inst.salario}</td>
+					<td>
+						<fmt:setLocale value="pt_BR" /> 
+						<fmt:formatNumber value="${inst.salario}" type="currency" />
+					</td>
 					<td>${inst.formacao}</td>
 					<td><a href="instrutorcontroller?id=${inst.id}">Alterar</a></td>
 				</tr>
@@ -34,3 +38,7 @@
 	</c:if>
 </body>
 </html>
+<!-- 
+https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm
+https://www.javatpoint.com/jstl-core-tags
+ -->
