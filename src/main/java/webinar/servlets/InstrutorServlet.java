@@ -33,8 +33,11 @@ public class InstrutorServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		int instrutorid = Integer.parseInt(request.getParameter("id"));
-		response.sendRedirect("editinstrutor.jsp?id=" + instrutorid);
-
+		Instrutor inst = new InstrutorDao().get(instrutorid);
+		request.setAttribute("instrutor", inst);
+		request.getRequestDispatcher("editinstrutor.jsp").forward(request, response);
+		//response.sendRedirect("editinstrutor.jsp?id=" + instrutorid);
+		
 	}
 
 	/**

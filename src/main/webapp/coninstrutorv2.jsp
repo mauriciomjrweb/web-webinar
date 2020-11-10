@@ -12,22 +12,25 @@
 </head>
 <body>
 	<a href="novoinstrutor.jsp">Novo Instrutor</a>
-	
+
 	<jsp:useBean id="daoinst" class="webinar.dao.InstrutorDao" />
-	
-	<table>
-		<c:forEach items="${daoinst.all}" var="inst" >
-			<tr>
-				<td>${inst.id }</td>
-				<td>${inst.nome}</td>
-				<td>${inst.email}</td>
-				<td>${inst.salario}</td>
-				<td>${inst.formacao}</td>
-				<td><a href="instrutorcontroller?id=${inst.id}">Alterar</a></td>
-			</tr>
+	<c:set var="instrutores" value="${daoinst.all}" />
 
-		</c:forEach>
+	<c:if test="${not empty instrutores}">
+		<table>
+			<c:forEach items="${instrutores}" var="inst">
+				<tr>
+					<td>${inst.id }</td>
+					<td>${inst.nome}</td>
+					<td>${inst.email}</td>
+					<td>${inst.salario}</td>
+					<td>${inst.formacao}</td>
+					<td><a href="instrutorcontroller?id=${inst.id}">Alterar</a></td>
+				</tr>
 
-	</table>
+			</c:forEach>
+
+		</table>
+	</c:if>
 </body>
 </html>
